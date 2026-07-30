@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<workbook version="2024.1" source-build="20241.24.0101.0000">
+
+  <document-format-change-manifest/>
+
+  <datasources>
+
+    <datasource name="SalesData" caption="Sales Data">
+
+      <connection
+          class="excel-direct"
+          dbname="SalesData.xlsx"
+          server=""
+          port=""/>
+
+      <column name="[Order ID]" datatype="string"/>
+      <column name="[Order Date]" datatype="date"/>
+      <column name="[Customer Name]" datatype="string"/>
+      <column name="[Region]" datatype="string"/>
+      <column name="[Category]" datatype="string"/>
+      <column name="[Sub Category]" datatype="string"/>
+      <column name="[Sales]" datatype="real"/>
+      <column name="[Profit]" datatype="real"/>
+      <column name="[Quantity]" datatype="integer"/>
+
+      <calculation
+          class="tableau"
+          formula="SUM([Sales])"/>
+
+      <calculation
+          class="tableau"
+          formula="SUM([Profit])"/>
+
+    </datasource>
+
+  </datasources>
+
+  <worksheets>
+
+    <worksheet name="Sales Dashboard"/>
+
+    <worksheet name="Regional Sales"/>
+
+    <worksheet name="Category Analysis"/>
+
+    <worksheet name="Monthly Trend"/>
+
+  </worksheets>
+
+  <dashboards>
+
+    <dashboard name="Executive Dashboard"/>
+
+  </dashboards>
+
+  <windows>
+
+    <window
+        class="dashboard"
+        name="Executive Dashboard"/>
+
+  </windows>
+
+  <filters>
+
+    <filter field="[Region]"/>
+
+    <filter field="[Category]"/>
+
+    <filter field="[Order Date]"/>
+
+  </filters>
+
+  <parameters>
+
+    <parameter
+        name="Year"
+        datatype="integer"
+        value="2025"/>
+
+    <parameter
+        name="Region"
+        datatype="string"
+        value="All"/>
+
+  </parameters>
+
+</workbook>
